@@ -1,0 +1,60 @@
+{
+  "name": "react-textarea-field",
+  "version": "0.0.1",
+  "description": "Simple React Textarea.",
+  "main": "./dist/modules/index.js",
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "clean:modules": "rimraf ./dist/modules",
+    "bundle:demo": "webpack --config ./webpack/webpack.config.demo.js",
+    "bundle:dist": "webpack --config ./webpack/webpack.config.dist.js",
+    "bundle:modules": "npm run clean:modules && babel src --loose --out-dir dist/modules",
+    "bundle:less": "lessc ./src/textarea.less ./dist/textarea.css && lessc --clean-css ./src/textarea.less ./dist/textarea.min.css",
+    "bundle": "npm run clean && npm run bundle:demo && npm run bundle:dist && npm run bundle:modules && npm run bundle:less",
+    "demo": "webpack-dev-server --config ./webpack/webpack.config.demo.js",
+    "lint": "eslint ./src",
+    "test": "npm run lint && mocha -R spec --compilers jsx:test/compiler.js ./test/*Test.jsx"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anvk/react-textarea-field.git"
+  },
+  "keywords": [
+    "react",
+    "reactjs",
+    "react-component",
+    "textarea"
+  ],
+  "author": "Alexey Novak <alexey.novak.mail@gmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^0.14.2"
+  },
+  "devDependencies": {
+    "autoprefixer-loader": "3.2.0",
+    "babel-cli": "6.10.1",
+    "babel-core": "6.10.4",
+    "babel-eslint": "6.1.0",
+    "babel-loader": "6.2.4",
+    "babel-preset-es2015": "6.9.0",
+    "babel-preset-react": "6.11.1",
+    "babel-preset-stage-0": "6.5.0",
+    "classnames": "2.1.5",
+    "css-loader": "0.23.1",
+    "eslint": "2.13.1",
+    "eslint-config-airbnb": "9.0.1",
+    "eslint-plugin-react": "5.2.2",
+    "less-loader": "2.2.3",
+    "less-plugin-clean-css": "1.5.1",
+    "mocha": "2.3.3",
+    "react-addons-test-utils": "0.14.2",
+    "react-dom": "0.14.2",
+    "rimraf": "2.5.3",
+    "sinon": "1.17.1",
+    "style-loader": "0.13.1",
+    "unexpected": "10.0.2",
+    "unexpected-sinon": "8.0.0",
+    "webpack": "1.12.1",
+    "webpack-dev-server": "1.10.1"
+  }
+}
